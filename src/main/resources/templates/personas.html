@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Legajo - List Personas</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link
+	href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+	rel="stylesheet" media="screen" />
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.0/jquery.min.js"
+	th:src="@{/webjars/jquery/3.2.0/jquery.min.js}"></script>
+
+<link href="../static/css/spring-core.css" th:href="@{css/legajo.css}"
+	rel="stylesheet" media="screen" />
+
+</head>
+<body>
+	<div class="container">
+		<div th:if="${not #lists.isEmpty(personas)}">
+			<h2>Personas List</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Código</th>
+					<th>Apellido Materno</th>
+					<th>Apellido Paterno</th>
+					<th>Nombres</th>
+				</tr>
+				<tr th:each="persona : ${personas}">
+					<td th:text="${persona.id}"></td>
+					<td th:text="${persona.apellidoMaterno}"></td>
+					<td th:text="${persona.apellidoPaterno}"></td>
+					<td th:text="${persona.Nombres}"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
